@@ -13,36 +13,50 @@ function App() {
 
   if (loading) return <p>Carregando...</p>;
 
-  // 🔍 filtro
   const filteredCoins = coins.filter((coin) =>
     coin.name.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
     <div style={{ padding: "30px", maxWidth: "1200px", margin: "0 auto" }}>
-      <h1 style={{ marginBottom: "20px" }}>Dashboard Realtime</h1>
+      {/* HEADER */}
+      <h1
+        style={{
+          fontSize: "32px",
+          fontWeight: "bold",
+          marginBottom: "10px",
+        }}
+      >
+        Crypto Dashboard
+      </h1>
+
+      <p style={{ color: "#94a3b8", marginBottom: "30px" }}>
+        Monitoramento de criptomoedas em tempo real
+      </p>
 
       {/* GRÁFICO */}
       <div style={{ marginBottom: "30px" }}>
-        <h2>{selectedCoin.toUpperCase()} (24h)</h2>
+        <h2 style={{ marginBottom: "10px" }}>
+          {selectedCoin.toUpperCase()} (24h)
+        </h2>
         <PriceChart coinId={selectedCoin} />
       </div>
 
-      {/* 🔍 BUSCA */}
+      {/* BUSCA */}
       <input
         type="text"
-        placeholder="Buscar moeda..."
+        placeholder="🔍 Buscar moeda..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         style={{
           width: "100%",
-          padding: "10px",
-          marginBottom: "20px",
-          borderRadius: "8px",
-          border: "none",
-          outline: "none",
-          backgroundColor: "#1e293b",
+          padding: "12px 14px",
+          marginBottom: "25px",
+          borderRadius: "10px",
+          border: "1px solid #334155",
+          backgroundColor: "#0f172a",
           color: "#fff",
+          fontSize: "14px",
         }}
       />
 
